@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Character Counter for Textarea</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      border: 2px solid #333;
+      padding: 15px;
+      margin-bottom: 20px;
+      width: 500px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .counter {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h3>Live Character Counter</h3>
+    <textarea id="textarea1" placeholder="Start typing..."></textarea>
+    <p class="counter">Characters: <span id="count1">0</span></p>
+  </div>
+
+  <div class="container">
+    <h3>Live Character Counter</h3>
+    <textarea id="textarea2">Hello from ByteXL</textarea>
+    <p class="counter">Characters: <span id="count2">0</span></p>
+  </div>
+
+  <script>
+    // Function to update character count
+    function updateCount(textareaId, countId) {
+      const textarea = document.getElementById(textareaId);
+      const count = document.getElementById(countId);
+
+      textarea.addEventListener("input", () => {
+        count.textContent = textarea.value.length;
+      });
+
+      // Initialize with default text count
+      count.textContent = textarea.value.length;
+    }
+
+    // Apply to both textareas
+    updateCount("textarea1", "count1");
+    updateCount("textarea2", "count2");
+  </script>
+
+</body>
+</html>
